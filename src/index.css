@@ -1,0 +1,245 @@
+﻿@import "tailwindcss";
+
+/* =========================
+   Theme Variables
+========================= */
+
+@theme {
+  --font-cairo: "Cairo", sans-serif;
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+
+  --color-bg-main: var(--bg-main);
+  --color-bg-card: var(--bg-card);
+
+  --color-text-main: var(--text-main);
+  --color-text-muted: var(--text-muted);
+
+  --color-border: var(--border);
+  --color-input-bg: var(--input-bg);
+}
+
+/* =========================
+   Root Colors
+========================= */
+
+:root {
+
+  --primary: #2ecc71;
+  --primary-hover: #27ae60;
+  --secondary: #1e2f5a;
+  --accent: #2ecc71;
+
+  --bg-main: #f8f9fa;
+  --bg-gradient: linear-gradient(to bottom,#f8f9fa,#ffffff);
+  --bg-card: #ffffff;
+
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+
+  --border: #e5e7eb;
+  --input-bg: #ffffff;
+
+  /* Table */
+  --table-header: #2ecc71;
+  --table-header-border: rgba(255,255,255,0.25);
+  --table-header-text: #ffffff;
+  --table-row-bg: #ffffff;
+  --table-row-hover: #f1f5f9;
+}
+
+/* =========================
+   Dark Mode (disabled look)
+========================= */
+[data-theme='dark'] {
+
+  --primary: #2ecc71;
+  --primary-hover: #27ae60;
+  --secondary: #1e2f5a;
+  --accent: #2ecc71;
+
+  --bg-main: #0a1930;
+  --bg-gradient: linear-gradient(to bottom,#0a1930,#050c18);
+  --bg-card: #112240;
+
+  --text-main: #ffffff;
+  --text-muted: #cbd5e1;
+
+  --border: #1d2d50;
+  --input-bg: #0a1930;
+
+  --table-header: #2ecc71;
+  --table-row-bg: #112240;
+  --table-row-hover: #1a2c4a;
+}
+/* =========================
+   Body
+========================= */
+
+body {
+
+  background: var(--bg-main);
+  background-color: var(--bg-main);
+
+  color: var(--text-main);
+
+  font-family: var(--font-cairo);
+
+  transition: background .3s,color .3s;
+}
+
+/* =========================
+   Tables
+========================= */
+
+.takamol-table-container {
+
+  @apply w-full overflow-hidden;
+
+}
+
+.takamol-table {
+
+  @apply w-full text-center text-sm bg-white shadow-sm;
+
+  border-collapse: separate !important;
+  border-spacing: 0;
+
+  border:1px solid var(--border);
+
+  border-radius:12px;
+
+  overflow:hidden;
+}
+
+.takamol-table thead{
+
+  background:var(--table-header) !important;
+}
+
+.takamol-table th{
+
+  @apply p-4 font-bold text-center whitespace-nowrap align-middle;
+
+  border-left:1px solid var(--table-header-border);
+
+  color:white !important;
+}
+
+.takamol-table th:last-child{
+
+  border-left:none;
+}
+
+.takamol-table td{
+
+  @apply p-4 text-center align-middle font-medium;
+
+  border-left:1px solid var(--border);
+
+  border-top:1px solid var(--border);
+
+  background:var(--table-row-bg);
+
+  color:var(--text-main);
+
+  transition:.2s;
+}
+
+.takamol-table td:last-child{
+
+  border-left:none;
+}
+
+.takamol-table tbody tr:hover td{
+
+  background:var(--table-row-hover);
+}
+
+/* =========================
+   Buttons
+========================= */
+
+.btn-primary{
+
+  @apply bg-[var(--primary)] text-white px-6 py-2 rounded-lg font-bold
+  hover:bg-[var(--primary-hover)] transition-all shadow-sm
+  active:scale-95 flex items-center justify-center gap-2;
+
+  width:max-content;
+}
+
+.btn-secondary{
+
+  @apply bg-white border border-[var(--border)] text-[var(--text-main)]
+  px-6 py-2 rounded-lg font-bold hover:bg-gray-50 transition-all
+  shadow-sm active:scale-95 flex items-center justify-center gap-2;
+
+  width:max-content;
+}
+
+/* =========================
+   Inputs
+========================= */
+
+.takamol-input{
+
+  @apply w-full bg-[var(--input-bg)] border border-[var(--border)]
+  rounded-xl px-4 py-2.5 outline-none
+  focus:border-[var(--primary)]
+  focus:ring-1 focus:ring-[var(--primary)]
+  transition-all text-[var(--text-main)];
+}
+
+input,
+select,
+textarea{
+
+  color:inherit;
+}
+
+/* =========================
+   Page Header
+========================= */
+
+.takamol-page-header{
+
+  @apply bg-white px-6 py-5 rounded-xl border border-gray-200
+  shadow-sm flex flex-col md:flex-row justify-between
+  items-center gap-4 w-full mb-6;
+}
+
+.takamol-page-title{
+
+  @apply text-xl font-bold;
+}
+
+.takamol-page-subtitle{
+
+  @apply text-sm mt-1.5 font-medium text-gray-500;
+}
+
+/* =========================
+   Dropdown menus
+========================= */
+
+.action-menu-container div[class*="absolute"] > button,
+.top-menu-container div[class*="absolute"] > button{
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+
+  width:100%;
+
+  padding:.6rem 1.2rem;
+}
+
+.action-menu-container svg,
+.top-menu-container svg{
+
+  margin-inline-end:.75rem;
+}
