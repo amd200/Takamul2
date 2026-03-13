@@ -19,8 +19,8 @@ type FormErrors = {
   defaultSaleUnitId?: string;
   image?: string;
 };
-const API_BASE = (import.meta as any)?.env?.VITE_API_BASE_URL || (process as any)?.env?.REACT_APP_API_BASE_URL || "http://takamulerp.runasp.net";
-
+const API_BASE =
+  import.meta.env.VITE_API_BASE_URL || "https://takamulerp.runasp.net";
 type ProductNature = "basic" | "prepared" | "sub" | "materials";
 
 type ApiCategory = {
