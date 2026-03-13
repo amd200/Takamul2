@@ -14,15 +14,15 @@ export default defineConfig(({ mode }) => {
     plugins: [react(), tailwindcss()],
 
     resolve: {
-      alias: {   
-        "@": path.resolve(__dirname, "./src"),
+      alias: {
+        "@": path.resolve(_dirname, "./src"),
       },
     },
 
     server: {
       proxy: {
         "/api": {
-          target: "http://takamulerp.runasp.net",
+          target: "https://takamulerp.runasp.net",
           changeOrigin: true,
           secure: false,
         },
